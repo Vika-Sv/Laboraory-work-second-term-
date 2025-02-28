@@ -30,6 +30,11 @@ public class Segment
         z2 = other.z2;
     }
 
+~Segment()
+    {
+        Console.WriteLine("Segment object is being destroyed");
+    }
+
     public double GetLength()
     {
         return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2) + Math.Pow(z2 - z1, 2));
