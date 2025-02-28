@@ -4,7 +4,7 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Введіть x1, y1, z1 або натисніть Enter для значень за замовчуванням:");
+        Console.WriteLine("Введіть x1, y1, z1:");
         string input = Console.ReadLine();
 
         Segment segment;
