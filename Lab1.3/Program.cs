@@ -10,7 +10,7 @@ class Program
         String CB2;
         if (string.IsNullOrWhiteSpace(input))
         {
-            CB2 = new StringClass("Hello");
+            CB2 = new String("Hello");
         }
         else
         {
