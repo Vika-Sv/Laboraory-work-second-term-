@@ -3,21 +3,21 @@
 
 #include <string>
 
-class StringClass {
+class String {
 private:
     std::string data;
 
 public:
-    StringClass();
-    StringClass(const std::string& str);
-    StringClass(const StringClass& other);
+    String();
+    String(const std::string& str);
+    String(const String& other);
 
-    ~StringClass();
+    ~String();
 
     int getLength() const;
 
-    StringClass operator+(const StringClass& other) const;
-    StringClass operator*(int n) const;
+    String operator+(const String & other) const;
+    String operator*(int n) const;
 
     std::string getData() const;
 };
