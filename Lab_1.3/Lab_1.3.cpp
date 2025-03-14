@@ -16,7 +16,6 @@ int main() {
     else {
         CB2 = String(input);
     }
-
     String CB3(CB2);
 
     CB3 = CB3 * 2;
