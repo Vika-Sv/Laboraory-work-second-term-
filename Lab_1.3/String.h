@@ -12,8 +12,6 @@ public:
     String(const std::string& str);
     String(const String& other);
 
-    ~String();
-
     int getLength() const;
 
     String operator+(const String & other) const;
