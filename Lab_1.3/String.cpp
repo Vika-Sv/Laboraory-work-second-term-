@@ -6,8 +6,6 @@ String::String(const std::string& str) : data(str) {}
 
 String::String(const String& other) : data(other.data) {}
 
-String::~String() {}
-
 int String::getLength() const {
     return data.length();
 }
