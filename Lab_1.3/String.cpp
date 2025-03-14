@@ -1,29 +1,29 @@
 #include "String.h"
 
-StringClass::StringClass() : data("") {}
+String::String() : data("") {}
 
-StringClass::StringClass(const std::string& str) : data(str) {}
+String::String(const std::string& str) : data(str) {}
 
-StringClass::StringClass(const StringClass& other) : data(other.data) {}
+String::String(const String& other) : data(other.data) {}
 
-StringClass::~StringClass() {}
+String::~String() {}
 
-int StringClass::getLength() const {
+int String::getLength() const {
     return data.length();
 }
 
-StringClass StringClass::operator+(const StringClass& other) const {
-    return StringClass(data + other.data);
+String String::operator+(const String& other) const {
+    return String(data + other.data);
 }
 
-StringClass StringClass::operator*(int n) const {
+String String::operator*(int n) const {
     std::string newData;
     for (char c : data) {
         newData += std::string(n, c);
     }
-    return StringClass(newData);
+    return String(newData);
 }
 
-std::string StringClass::getData() const {
+std::string String::getData() const {
     return data;
 }
