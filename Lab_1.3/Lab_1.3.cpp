@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <windows.h>
 #include "String.h"
 
@@ -9,11 +9,18 @@ int main() {
     std::cout << "Введіть слово: ";
     std::getline(std::cin, input);
 
-    StringClass CB2 = input.empty() ? StringClass("Hello") : StringClass(input);
-    StringClass CB3(CB2);
+    String CB2;
+    if (input.empty()) {
+        CB2 = String("Hello");
+    }
+    else {
+        CB2 = String(input);
+    }
+
+    String CB3(CB2);
 
     CB3 = CB3 * 2;
-    StringClass CB1 = CB2 + CB3;
+    String CB1 = CB2 + CB3;
 
     std::cout << "CB1: " << CB1.getData() << " (Довжина: " << CB1.getLength() << ")\n";
     std::cout << "CB2: " << CB2.getData() << " (Довжина: " << CB2.getLength() << ")\n";
