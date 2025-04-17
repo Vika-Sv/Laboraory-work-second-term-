@@ -1,8 +1,8 @@
 ﻿namespace GeometryLib
 {
-    public abstract class Figure
+    public virtual class Figure
     {
-        public abstract double GetArea();
-        public abstract double GetPerimeter();
+        public virtual double GetArea();
+        public virtual double GetPerimeter();
     }
 }
