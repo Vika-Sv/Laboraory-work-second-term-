@@ -1,34 +1,77 @@
+#include <iostream>
+#include <windows.h>
 #include "TextContainer.h"
 
-void TextContainer::addRow(const TextRow& row) {
-    rows.push_back(row);
+void showMenu() {
+    std::cout << "\n=== МЕНЮ ===\n";
+    std::cout << "1. Додати рядок\n";
+    std::cout << "2. Показати всі рядки\n";
+    std::cout << "3. Видалити рядок\n";
+    std::cout << "4. Замінити рядок\n";
+    std::cout << "5. Порахувати загальну кількість цифр\n";
+    std::cout << "6. Очистити всі рядки\n";
+    std::cout << "0. Вихід\n";
+    std::cout << "Ваш вибір: ";
 }
 
-void TextContainer::removeRow(int index) {
-    if (index >= 0 && index < rows.size())
-        rows.erase(rows.begin() + index);
-}
+int main() {
+    SetConsoleOutputCP(1251); 
+    TextContainer container;
+    int choice;
 
-void TextContainer::replaceRow(int index, const TextRow& row) {
-    if (index >= 0 && index < rows.size())
-        rows[index] = row;
-}
+    do {
+        showMenu();
+        std::cin >> choice;
+        std::cin.ignore(); 
 
-void TextContainer::clear() {
-    rows.clear();
-}
+        if (choice == 1) {
+            std::string text;
+            std::cout << "Введіть новий рядок: ";
+            std::getline(std::cin, text);
 
-int TextContainer::getRowCount() const {
-    return rows.size();
-}
+            if (text.empty()) {
+                container.addRow(TextRow()); 
+            }
+            else {
+                container.addRow(TextRow(text));
+            }
+        }
+        else if (choice == 2) {
+            std::cout << "\n--- Всі рядки ---\n";
+            for (int i = 0; i < container.getRowCount(); ++i)
+                std::cout << i + 1 << ": " << container.getRow(i).getText() << "\n";
+        }
+        else if (choice == 3) {
+            int index;
+            std::cout << "Номер рядка для видалення: ";
+            std::cin >> index;
+            std::cin.ignore();
+            container.removeRow(index - 1);
+        }
+        else if (choice == 4) {
+            int index;
+            std::string newText;
+            std::cout << "Номер рядка для заміни: ";
+            std::cin >> index;
+            std::cin.ignore();
+            std::cout << "Новий текст: ";
+            std::getline(std::cin, newText);
 
-int TextContainer::totalDigits() const {
-    int total = 0;
-    for (const auto& row : rows)
-        total += row.countDigits();
-    return total;
-}
+            if (newText.empty()) {
+                container.replaceRow(index - 1, TextRow());
+            }
+            else {
+                container.replaceRow(index - 1, TextRow(newText));
+            }
+        }
+        else if (choice == 5) {
+            std::cout << "Загальна кількість цифр: " << container.totalDigits() << "\n";
+        }
+        else if (choice == 6) {
+            container.clear();
+            std::cout << "Всі рядки очищено.\n";
+        }
+    } while (choice != 0);
 
-TextRow TextContainer::getRow(int index) const {
-    return (index >= 0 && index < rows.size()) ? rows[index] : TextRow();
+    return 0;
 }
