@@ -14,8 +14,7 @@ int main() {
 
         ExpressionCalculator calc;
 
-        if (input.empty()) {
-            //Викликається автоматом конструктор за замовчуванням, бо ми нічо не передаєм 
+        if (input.empty()) { 
         }
         else {
             std::istringstream iss(input);
@@ -23,12 +22,12 @@ int main() {
             if (!(iss >> a >> b >> c)) {
                 throw std::invalid_argument("Неправильний формат вводу.");
             }
-            calc = ExpressionCalculator(a, b, c); //Якзо введем хуйню, то виізе текст зверху, а якщо ні, то буде конструктор за параметром 
+            calc = ExpressionCalculator(a, b, c);  
         }
 
         std::cout << "Результат: " << calc.Calculate() << std::endl;
     }
-    catch (const std::exception& ex) { // catch -  оператор ловить ту помилку, якщо вона сталася, не дає програмі зламатися, і дозволяє вивести повідомлення.
+    catch (const std::exception& ex) { 
         std::cerr << "Помилка: " << ex.what() << std::endl;
     }
 
