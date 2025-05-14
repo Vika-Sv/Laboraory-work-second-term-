@@ -6,7 +6,7 @@ public class ExpressionCalculator
 
     public ExpressionCalculator()
     {
-        a = 1; b = 2; c = 3; // значення за замовчуванням
+        a = 1; b = 2; c = 3; 
     }
 
     public ExpressionCalculator(double a, double b, double c)
