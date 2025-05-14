@@ -4,11 +4,11 @@
 class ExpressionCalculator {
 private:
     double a, b, c;
-    double SafeLog(double value);//Якщо підлогорофмичнй вираз буде 0, воно не дасть його порахувати, бо логорифм не може бути 0
+    double SafeLog(double value);
 
 public:
-    ExpressionCalculator(); // конструктор за замовчуванням
-    ExpressionCalculator(double a, double b, double c); // з параметрами
+    ExpressionCalculator(); 
+    ExpressionCalculator(double a, double b, double c); 
 
     double Calculate();
 
