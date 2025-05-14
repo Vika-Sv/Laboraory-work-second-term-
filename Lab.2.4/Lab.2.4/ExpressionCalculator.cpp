@@ -2,9 +2,9 @@
 #include <cmath>
 #include <stdexcept>
 
-ExpressionCalculator::ExpressionCalculator() : a(1), b(2), c(3) {} //за замовчуванням
+ExpressionCalculator::ExpressionCalculator() : a(1), b(2), c(3) {} 
 
-ExpressionCalculator::ExpressionCalculator(double a, double b, double c)// з параметром 
+ExpressionCalculator::ExpressionCalculator(double a, double b, double c) 
     : a(a), b(b), c(c) {
 }
 
@@ -14,14 +14,14 @@ double ExpressionCalculator::getC() const { return c; }
 
 double ExpressionCalculator::SafeLog(double value) {
     if (value <= 0)
-        throw std::invalid_argument("Логарифм від нуля або від’ємного числа неможливий.");
+        throw std::invalid_argument("Г‹Г®ГЈГ Г°ГЁГґГ¬ ГўВіГ¤ Г­ГіГ«Гї Г ГЎГ® ГўВіГ¤вЂ™ВєГ¬Г­Г®ГЈГ® Г·ГЁГ±Г«Г  Г­ГҐГ¬Г®Г¦Г«ГЁГўГЁГ©.");
     return log(value);
 }
 
-double ExpressionCalculator::Calculate() { //Рахує сам вираз, рахує окремо чисельник, потім робить перевірку, щоб знамник b/c типу не дорівнював 0, ну і поті окремо рахує знаменик. Повертає чисельник / знакменик 
+double ExpressionCalculator::Calculate() {  
     double numerator = SafeLog((a * b + 2) * c);
     if (c == 0)
-        throw std::domain_error("Ділення на нуль.");
+        throw std::domain_error("Г„ВіГ«ГҐГ­Г­Гї Г­Г  Г­ГіГ«Гј.");
     double denominator = 41 - b / c + 1;
     return numerator / denominator;
 }
